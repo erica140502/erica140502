@@ -1,0 +1,88 @@
+import numpy as np
+import scipy.stats as si
+import sympy as sy
+from sympy.stats import Normal, cdf
+from sympy import init_printing
+init_printing()
+
+import pandas as pd
+
+danone_data = pd.read_csv('C:/Users/botic/.cache/aria2/danone_data.csv')
+
+print(danone_data)
+         Data required;2022;;;;
+0       closing_price;53.26;;;;
+1         net_profit;3089.5;;;;
+2       total_assets ;46836;;;;
+3   total_liabilities;28223;;;;
+4        total_equity;18613;;;;
+5                         ;;;;;
+6                         ;;;;;
+7                         ;;;;;
+8                         ;;;;;
+9                         ;;;;;
+10                        ;;;;;
+11                        ;;;;;
+12                        ;;;;;
+13                        ;;;;;
+14                        ;;;;;
+
+import pandas as pd
+
+# Importer les données à partir du fichier texte
+df = pd.read_csv('C:/Users/botic/.cache/aria2/danone_data.csv', delimiter=';')
+
+# Afficher les données
+print(df)
+        Data required      2022  Unnamed: 2  Unnamed: 3  Unnamed: 4  Unnamed: 5
+0       closing_price     53.26         NaN         NaN         NaN         NaN
+1          net_profit   3089.50         NaN         NaN         NaN         NaN
+2       total_assets   46836.00         NaN         NaN         NaN         NaN
+3   total_liabilities  28223.00         NaN         NaN         NaN         NaN
+4        total_equity  18613.00         NaN         NaN         NaN         NaN
+5                 NaN       NaN         NaN         NaN         NaN         NaN
+6                 NaN       NaN         NaN         NaN         NaN         NaN
+7                 NaN       NaN         NaN         NaN         NaN         NaN
+8                 NaN       NaN         NaN         NaN         NaN         NaN
+9                 NaN       NaN         NaN         NaN         NaN         NaN
+10                NaN       NaN         NaN         NaN         NaN         NaN
+11                NaN       NaN         NaN         NaN         NaN         NaN
+12                NaN       NaN         NaN         NaN         NaN         NaN
+13                NaN       NaN         NaN         NaN         NaN         NaN
+14                NaN       NaN         NaN         NaN         NaN         NaN
+
+capital_invested = total_assets - total_liabilities
+Traceback (most recent call last):
+
+  File "C:\Users\botic\AppData\Local\Temp\ipykernel_8180\2271307241.py", line 1, in <module>
+    capital_invested = total_assets - total_liabilities
+
+NameError: name 'total_assets' is not defined
+
+
+import pandas as pd
+
+# Importer les données à partir du fichier texte
+df = pd.read_csv('C:/Users/botic/.cache/aria2/danone_data.csv', delimiter=';')
+
+# Extraire les valeurs des colonnes correspondantes
+closing_price = df.loc[df['Data required'] == 'closing_price', '2022'].values[0]
+net_profit = df.loc[df['Data required'] == 'net_profit', '2022'].values[0]
+total_assets = df.loc[df['Data required'] == 'total_assets ', '2022'].values[0]
+total_liabilities = df.loc[df['Data required'] == 'total_liabilities', '2022'].values[0]
+
+# Calculer le ROI
+roi = net_profit / (total_assets - total_liabilities)
+
+# Afficher le ROI
+print('Le ROI est de:', roi)
+Le ROI est de: 0.16598613872024928
+
+#Calculer le ROE
+
+total_equity = df.loc[df['Data required'] == 'total_equity', '2022'].values[0]
+
+roe = net_profit / total_equity
+
+print('Le ROE est de:', roe)
+Le ROE est de: 0.16598613872024928
